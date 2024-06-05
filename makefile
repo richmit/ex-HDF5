@@ -21,15 +21,15 @@ CXXFLAGS = -O3 -Wall
 #-----------------------------------------------------------------------------------------------------------------------------------
 # HDF5 stuff
 
-# Typical Linux system with both serial and non-serial versions installed
-# HDF5INCPATH = -I/usr/include/hdf5/serial
-# HDF5LIBPATH = -L/usr/lib
-# HDF5LIB     = -lhdf5_serial -lhdf5_serial_hl
+## Typical Linux system with both serial and non-serial versions installed
+HDF5INCPATH = -I/usr/include/hdf5/serial
+HDF5LIBPATH = -L/usr/lib
+HDF5LIB     = -lhdf5_serial -lhdf5_serial_hl
 
-# Typical system with only one (serial or non-serial) version installed
+## Typical system with only one (serial or non-serial) version installed
 #HDF5INCPATH = -I/usr/include/hdf5
 #HDF5LIBPATH = -L/usr/lib
-HDF5LIB     = -lhdf5 -lhdf5_hl
+#HDF5LIB     = -lhdf5 -lhdf5_hl
 
 #-----------------------------------------------------------------------------------------------------------------------------------
 # Uncomment to build all when make file changes
@@ -40,11 +40,13 @@ SPECDEP=makefile
 TARGETS = hdf5NewFile hdf5ReadModifyWrite mjrHDF5.o hdf5Query hdf5NewFileEC hdf5Compound hdf5Hyperslab hdf5ImageRead hdf5ImageWrite hdf5Table hdf5LiteNewFile
 
 #-----------------------------------------------------------------------------------------------------------------------------------
+.PHONY: all clean
+
 all : $(TARGETS)
 	@echo Make Complete
 
 clean :
-	rm -rf a.out *~ *.bak *.bak? *.h5 $(TARGETS)
+	rm -rf *.exe *.EXE a.out *~ *.bak *.bak? *.h5 $(TARGETS)
 	@echo Make Complete
 
 mjrHDF5.o : mjrHDF5.c mjrHDF5.h
