@@ -33,14 +33,11 @@
 
 /* ****************************************************************************************************************************** */
 int main(int argc, char *argv[]) {
-  hid_t   fileID, datasetID, dataspaceID;
+  hid_t   fileID;
   hsize_t dims[3] = {MAX_X, MAX_Y, MAX_T};
   herr_t  hErrVal;
-  float   floatDataPoint[10];
   int     id, i, j, k;
   float   temp[MAX_X][MAX_Y][MAX_T];
-  char    *strPerDim[3];
-  float   valPerDim[3];
 
   /* Create phony data. */
   for(i=0,id=0; i<MAX_X; i++)
